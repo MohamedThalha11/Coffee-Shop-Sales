@@ -58,6 +58,3 @@ In Power BI, these metrics are implemented as measures and used across cards, ba
 - **Store Operations**: Benchmark low‑performing stores against high‑performing ones to replicate successful practices.  
 - **Promotions & Pricing**: Plan promotions for low‑traffic periods (slow days/hours) and evaluate their impact using MoM metrics.  
 - **Inventory Management**: Align purchasing and inventory levels with demand patterns by store, product, and time.
- 
-
-## Suggested Repository Structure
