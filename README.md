@@ -58,3 +58,23 @@ In Power BI, these metrics are implemented as measures and used across cards, ba
 - **Store Operations**: Benchmark low‑performing stores against high‑performing ones to replicate successful practices.  
 - **Promotions & Pricing**: Plan promotions for low‑traffic periods (slow days/hours) and evaluate their impact using MoM metrics.  
 - **Inventory Management**: Align purchasing and inventory levels with demand patterns by store, product, and time.
+
+## Business Problems Addressed
+- Limited visibility into overall sales performance by store, product, and time period.
+- No easy way to track how monthly sales, orders, and quantity are changing over time.
+- Difficulty identifying peak and off‑peak hours for better staffing and inventory planning.
+- Lack of clear insights into which products and categories drive the most revenue.
+- Manual, time‑consuming reporting from Excel with no single interactive view for managers.
+
+## Learning Outcomes
+- Applied SQL window functions and aggregations to build business KPIs.
+- Designed an end‑to‑end pipeline from Excel → MySQL → Power BI dashboard.
+- Created intuitive visuals such as calendar heatmaps, weekday/weekend splits, and time‑of‑day analysis.
+- Practiced documenting assumptions, metrics, and decisions for business stakeholders.
+
+## Contact
+
+If you’d like to discuss this project or potential opportunities, feel free to reach out:
+
+- LinkedIn: www.linkedin.com/in/mohamed-thalha-8b6a18267
+- Email: mohamedthalha110@gmail.com
