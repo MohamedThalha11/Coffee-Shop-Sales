@@ -1,80 +1,80 @@
 # Coffee Shop Sales Analysis – MySQL & Power BI
 
 ## Problem Statement
-A multi‑location coffee shop wants to understand its sales performance across stores, products, and time in order to increase revenue and improve operational efficiency. Currently, management receives only raw Excel reports and cannot quickly see which products, stores, or time periods drive the most sales or where there are opportunities to optimize.
+A multi-location coffee shop chain needs to understand its sales performance beyond static Excel reports, which do not clearly answer questions about top-performing stores/products, peak hours, and month-over-month trends.
 
 ## Objective
-- Clean and structure raw transactional data in a relational database.  
-- Build an interactive Power BI dashboard that tracks key KPIs such as Total Sales, Total Orders, and Total Quantity Sold.  
-- Identify patterns by store location, product category, day of week, and hour of day to support data‑driven decisions.
+- Clean and structure raw transactional data in MySQL.
+- Build an interactive Power BI dashboard that tracks core KPIs for fast decision-making.
+- Identify sales patterns by store location, product category, and time (hour/day/month).
+- Support operational improvements in staffing, inventory, and promotions.
 
 ## My Role
-- Designed the end‑to‑end analytics workflow from data ingestion to dashboard.  
-- Performed data cleaning and transformation in MySQL (data types, calculated columns, aggregations).  
-- Modeled the data in Power BI and created visuals, measures, and page‑level interactions.  
-- Documented business logic, assumptions, and insights for non‑technical stakeholders.
+- Designed the end-to-end analytics workflow from data ingestion to dashboard delivery.
+- Performed data cleaning and transformations in MySQL (data types, formats, calculations).
+- Modeled the data in Power BI and created measures (DAX) and interactive visuals.
+- Documented business logic, assumptions, and insights for non-technical stakeholders.
 
 ## Tools Used
-- **MySQL** – data cleaning, transformations, and KPI aggregations.  
-- **Power BI** – data modeling, DAX measures, and interactive visuals.  
-- **Excel** – source file exploration and initial understanding of fields.
+- **MySQL**: Data cleaning, transformations, aggregations.
+- **Power BI**: Data modeling, DAX measures, dashboard creation.
+- **Excel**: Initial exploration and understanding of fields/data quality.
 
 ## Dataset Summary
-- Transaction‑level dataset for a coffee shop chain for the year 2023.  
-- Each row represents one line of sale with:
-  - Transaction details: `transaction_id`, `transaction_date`, `transaction_time`, `transaction_qty`.  
-  - Store information: `store_id`, `store_location`.  
-  - Product information: `product_id`, `product_category`, `product_type`, `product_detail`.  
-  - Financials: `unit_price`, from which revenue is derived.  
-- After cleaning, date and time fields are stored in proper `DATE` and `TIME` formats and prices in `DECIMAL`.
+Transaction-level dataset for a coffee shop chain (2023). Each row represents one line of sale.
 
-## Key Insights & Business Impact
-- Identified best‑performing stores and product categories contributing the highest share of revenue.  
-- Highlighted peak sales days and hours, showing when customer traffic is strongest and when staff and inventory need to be optimized.  
-- Revealed differences between weekday and weekend performance, supporting targeted promotions and staffing strategies.  
-- Detected above‑average and below‑average sales days in a month, useful for investigating campaigns, holidays, or operational issues.
+Included fields:
+- Transaction details: transaction_id, transaction_date, transaction_time, transaction_qty
+- Store details: store_id, store_location
+- Product details: product_id, product_category, product_type, product_detail
+- Financials: unit_price (used to derive revenue)
 
-## Metrics, DAX Measures, and Analytical Logic
-Core metrics used in the dashboard:
+Data preparation:
+- Converted date/time fields into proper DATE and TIME formats.
+- Stored prices as DECIMAL to maintain financial accuracy.
 
-- **Total Sales** = sum of `unit_price * transaction_qty`.  
-- **Total Orders** = count of `transaction_id`.  
-- **Total Quantity Sold** = sum of `transaction_qty`.  
-- **Average Daily Sales** = average of daily Total Sales for a selected month.  
-- **Month‑on‑Month (MoM) % Change** for Sales, Orders, and Quantity:  
-  - \((CurrentMonthValue − PreviousMonthValue) / PreviousMonthValue\) expressed as a percentage.  
-- **Weekday vs Weekend Sales**:  
-  - Transactions are tagged as “Weekday” or “Weekend” using the day of week, then aggregated by Total Sales.  
-- **Sales Status (Above/Below Average)**:  
-  - For a given month, each day’s sales are compared to the overall monthly average and classified as Above Average, Below Average, or Equal to Average.  
-- **Sales by Time**:  
-  - Hourly aggregation of sales to build a heatmap of sales by Day of Week and Hour of Day.
+## Key KPIs
+- Total Sales
+- Total Orders
+- Total Quantity Sold
+- Average Daily Sales
+- Month-on-Month (MoM) % Change
 
-In Power BI, these metrics are implemented as measures and used across cards, bar charts, donut charts, and heatmaps to drive consistent logic across all visuals.
+## Metrics and Business Logic
+- Total Sales = unit_price × transaction_qty
+- Total Orders = COUNT(transaction_id)
+- Total Quantity Sold = SUM(transaction_qty)
+- Average Daily Sales = Average of daily total sales (for selected month)
+- MoM % Change = (Current Month − Previous Month) / Previous Month
+- Weekday/Weekend classification using day of week
+- Hourly aggregation used to identify peak demand periods
 
-## What Decisions Can Be Made from the Findings
-- **Staffing & Scheduling**: Adjust staff levels during peak hours and days to reduce wait times and improve customer experience.  
-- **Product Strategy**: Focus marketing and upselling on top‑performing products and categories; evaluate and redesign or discontinue consistently under‑performing items.  
-- **Store Operations**: Benchmark low‑performing stores against high‑performing ones to replicate successful practices.  
-- **Promotions & Pricing**: Plan promotions for low‑traffic periods (slow days/hours) and evaluate their impact using MoM metrics.  
-- **Inventory Management**: Align purchasing and inventory levels with demand patterns by store, product, and time.
+## Analysis Performed
+- Sales performance by store location
+- Revenue contribution by product category
+- Monthly sales trends and MoM change
+- Weekday vs weekend sales comparison
+- Hourly and daily sales patterns
+- Identification of above-average and below-average sales days
 
-## Business Problems Addressed
-- Limited visibility into overall sales performance by store, product, and time period.
-- No easy way to track how monthly sales, orders, and quantity are changing over time.
-- Difficulty identifying peak and off‑peak hours for better staffing and inventory planning.
-- Lack of clear insights into which products and categories drive the most revenue.
-- Manual, time‑consuming reporting from Excel with no single interactive view for managers.
+## Key Insights
+- A small number of stores and product categories drive a large portion of total revenue.
+- Clear peak hours and peak days exist across locations.
+- Weekend vs weekday sales patterns differ significantly.
+- Monthly trends highlight seasonality and demand shifts.
 
-## Learning Outcomes
-- Applied SQL window functions and aggregations to build business KPIs.
-- Designed an end‑to‑end pipeline from Excel → MySQL → Power BI dashboard.
-- Created intuitive visuals such as calendar heatmaps, weekday/weekend splits, and time‑of‑day analysis.
-- Practiced documenting assumptions, metrics, and decisions for business stakeholders.
+## Business Impact
+- Optimizes staffing during peak hours.
+- Improves inventory planning by store and product.
+- Supports targeted promotions during low-traffic periods.
+- Replaces manual Excel reporting with a single interactive dashboard.
+
+## Deliverables
+- Power BI interactive dashboard
+- MySQL queries for data cleaning and aggregation
+- Documented KPIs, assumptions, and insights
 
 ## Contact
-
-If you’d like to discuss this project or potential opportunities, feel free to reach out:
-
-- LinkedIn: www.linkedin.com/in/mohamed-thalha-8b6a18267
-- Email: mohamedthalha110@gmail.com
+Mohamed Thalha  
+Email: mohamedthal110@gmail.com  
+LinkedIn: https://www.linkedin.com/in/mohamed-thalha-8b6a18267
